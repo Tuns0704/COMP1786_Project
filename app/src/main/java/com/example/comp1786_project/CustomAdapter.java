@@ -50,7 +50,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.AppViewHol
         holder.trip_id_txt.setText(String.valueOf(tList.getTrip_id()));
         holder.trip_name_txt.setText(String.valueOf(tList.getTrip_name()));
         holder.trip_destination_txt.setText(String.valueOf(tList.getTrip_destination()));
-        holder.trip_date_txt.setText(String.valueOf(tList.getTrip_name()));
+        holder.trip_date_txt.setText(String.valueOf(tList.getTrip_date()));
         holder.trip_requireAssessment_txt.setText(String.valueOf(tList.getTrip_requireAssessment()));
         holder.trip_description_txt.setText(String.valueOf(tList.getTrip_description()));
     }

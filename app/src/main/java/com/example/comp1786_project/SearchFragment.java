@@ -105,7 +105,9 @@ public class SearchFragment extends Fragment implements RecycleViewInterface {
     private void filterList(String text){
         List<TripList> filteredList = new ArrayList<>();
         for (TripList tList : tripList){
-            if(tList.getTrip_name().toLowerCase().contains(text.toLowerCase())){
+            if(tList.getTrip_name().toLowerCase().contains(text.toLowerCase()) ||
+            tList.getTrip_destination().toLowerCase().contains(text.toLowerCase()) ||
+            tList.getTrip_date().toLowerCase().contains(text.toLowerCase())){
                 filteredList.add(tList);
             }
         }
