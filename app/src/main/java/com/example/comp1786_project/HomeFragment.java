@@ -26,13 +26,7 @@ public class HomeFragment extends Fragment implements RecycleViewInterface {
     TextView no_data;
     DatabaseHelper db;
     CustomAdapter customAdapter;
-
-    private ArrayList<String>  trip_id,
-            trip_name,
-            trip_destination,
-            trip_date,
-            trip_requireAssessment,
-            trip_description;
+    ArrayList<TripList> tripList = new ArrayList<>();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -61,22 +55,12 @@ public class HomeFragment extends Fragment implements RecycleViewInterface {
         });
 
         db = new DatabaseHelper(getActivity());
-        trip_id = new ArrayList<>();
-        trip_name = new ArrayList<>();
-        trip_destination = new ArrayList<>();
-        trip_date = new ArrayList<>();
-        trip_requireAssessment = new ArrayList<>();
-        trip_description = new ArrayList<>();
 
         storeDataToArrays();
 
         customAdapter = new CustomAdapter(getActivity(), getContext(),
-                trip_id,
-                trip_name,
-                trip_destination,
-                trip_date,
-                trip_requireAssessment,
-                trip_description, this);
+                tripList,
+                this);
         recyclerView.setAdapter(customAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         return view;
@@ -87,15 +71,15 @@ public class HomeFragment extends Fragment implements RecycleViewInterface {
         if(cursor.getCount() == 0){
             empty_imageView.setVisibility(View.VISIBLE);
             no_data.setVisibility(View.VISIBLE);
-        }else{
+        }else {
             cursor.moveToFirst();
             while (!cursor.isAfterLast()){
-                trip_id.add(cursor.getString(0));
-                trip_name.add(cursor.getString(1));
-                trip_destination.add(cursor.getString(2));
-                trip_date.add(cursor.getString(3));
-                trip_requireAssessment.add(cursor.getString(4));
-                trip_description.add(cursor.getString(5));
+                tripList.add(new TripList(cursor.getString(0),
+                        cursor.getString(1),
+                        cursor.getString(2),
+                        cursor.getString(3),
+                        cursor.getString(4),
+                        cursor.getString(5)));
                 cursor.moveToNext();
             }
             empty_imageView.setVisibility(View.GONE);
@@ -106,12 +90,13 @@ public class HomeFragment extends Fragment implements RecycleViewInterface {
     @Override
     public void OnItemClick(int position) {
         Intent intent = new Intent(getActivity(),DetailActivity.class);
-        intent.putExtra("id", String.valueOf(trip_id.get(position)));
-        intent.putExtra("name", String.valueOf(trip_name.get(position)));
-        intent.putExtra("destination", String.valueOf(trip_destination.get(position)));
-        intent.putExtra("date", String.valueOf(trip_date.get(position)));
-        intent.putExtra("requireAssessment", String.valueOf(trip_requireAssessment.get(position)));
-        intent.putExtra("description", String.valueOf(trip_description.get(position)));
+        TripList tList = tripList.get(position);
+        intent.putExtra("id", String.valueOf(tList.getTrip_id()));
+        intent.putExtra("name", String.valueOf(tList.getTrip_name()));
+        intent.putExtra("destination", String.valueOf(tList.getTrip_destination()));
+        intent.putExtra("date", String.valueOf(tList.getTrip_date()));
+        intent.putExtra("requireAssessment", String.valueOf(tList.getTrip_requireAssessment()));
+        intent.putExtra("description", String.valueOf(tList.getTrip_description()));
         startActivityForResult(intent,1);
     }
 }

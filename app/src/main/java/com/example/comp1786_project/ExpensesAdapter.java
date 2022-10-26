@@ -11,28 +11,20 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class ExpensesAdapter extends RecyclerView.Adapter<ExpensesAdapter.ExpensesViewHolder> {
     Activity activity;
     private final Context context;
     private final RecycleViewInterface recycleViewInterface;
-    ArrayList expense_id,
-            expense_type,
-            expense_amount,
-            expense_time;
+    List<ExpenseList> expenseList;
 
     ExpensesAdapter(Activity activity, Context context,
-                    ArrayList expense_id,
-                    ArrayList expense_type,
-                    ArrayList expense_amount,
-                    ArrayList expense_time,
+                    ArrayList<ExpenseList> expenseList,
                     RecycleViewInterface recycleViewInterface) {
         this.activity = activity;
         this.context = context;
-        this.expense_id = expense_id;
-        this.expense_type = expense_type;
-        this.expense_amount = expense_amount;
-        this.expense_time = expense_time;
+        this.expenseList = expenseList;
         this.recycleViewInterface = recycleViewInterface;
     }
 
@@ -46,15 +38,16 @@ public class ExpensesAdapter extends RecyclerView.Adapter<ExpensesAdapter.Expens
 
     @Override
     public void onBindViewHolder(@NonNull ExpensesViewHolder holder, int position) {
-        holder.expense_type_txt.setText(String.valueOf(expense_type.get(position)));
-        holder.expense_amount_txt.setText(String.valueOf(expense_amount.get(position)));
-        holder.expense_time_txt.setText(String.valueOf(expense_time.get(position)));
+        ExpenseList eList = expenseList.get(position);
+        holder.expense_type_txt.setText(String.valueOf(eList.getExpense_type()));
+        holder.expense_amount_txt.setText(String.valueOf(eList.getExpense_amount()));
+        holder.expense_time_txt.setText(String.valueOf(eList.getExpense_time()));
     }
 
 
     @Override
     public int getItemCount() {
-        return expense_id.size();
+        return expenseList.size();
     }
 
     public static class ExpensesViewHolder extends RecyclerView.ViewHolder{

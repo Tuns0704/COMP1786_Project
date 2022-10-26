@@ -25,11 +25,7 @@ public class ExpensesMainActivity extends AppCompatActivity implements RecycleVi
     DatabaseHelper db;
     ExpensesAdapter expensesAdapter;
     int tripId;
-
-    private ArrayList<String>  expense_id,
-        expense_type,
-        expense_amount,
-        expense_time;
+    ArrayList<ExpenseList> expenseList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,18 +50,12 @@ public class ExpensesMainActivity extends AppCompatActivity implements RecycleVi
         });
 
         db = new DatabaseHelper(ExpensesMainActivity.this);
-        expense_id = new ArrayList<>();
-        expense_type = new ArrayList<>();
-        expense_amount = new ArrayList<>();
-        expense_time = new ArrayList<>();
 
         storeDataToArray();
 
         expensesAdapter = new ExpensesAdapter(ExpensesMainActivity.this, ExpensesMainActivity.this,
-                expense_id,
-                expense_type,
-                expense_amount,
-                expense_time,this);
+                expenseList,
+                this);
 
         recyclerView.setAdapter(expensesAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(ExpensesMainActivity.this));
@@ -94,10 +84,11 @@ public class ExpensesMainActivity extends AppCompatActivity implements RecycleVi
         }else{
             cursor.moveToFirst();
             while (!cursor.isAfterLast()){
-                expense_id.add(cursor.getString(0));
-                expense_type.add(cursor.getString(1));
-                expense_amount.add(cursor.getString(2));
-                expense_time.add(cursor.getString(3));
+                expenseList.add(new ExpenseList(cursor.getString(4),
+                        cursor.getString(0),
+                        cursor.getString(1),
+                        cursor.getString(2),
+                        cursor.getString(3)));
                 cursor.moveToNext();
             }
         }

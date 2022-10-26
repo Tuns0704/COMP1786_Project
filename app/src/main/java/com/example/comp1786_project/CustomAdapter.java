@@ -5,39 +5,34 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.Locale;
 
 public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.AppViewHolder> {
     Activity activity;
     private final Context context;
     private final RecycleViewInterface recycleViewInterface;
-    ArrayList trip_id,
-            trip_name,
-            trip_destination,
-            trip_date,
-            trip_requireAssessment,
-            trip_description;
+    List<TripList> tripList;
+
+    public void setFilteredList(List<TripList> filteredList){
+        this.tripList = filteredList;
+        notifyDataSetChanged();
+    }
 
     CustomAdapter(Activity activity ,Context context,
-                  ArrayList trip_id,
-                  ArrayList trip_name,
-                  ArrayList trip_destination,
-                  ArrayList trip_date,
-                  ArrayList trip_requireAssessment,
-                  ArrayList trip_description,
+                    ArrayList<TripList> tripList,
                   RecycleViewInterface recycleViewInterface) {
         this.activity = activity;
         this.context = context;
-        this.trip_id = trip_id;
-        this.trip_name = trip_name;
-        this.trip_destination = trip_destination;
-        this.trip_date = trip_date;
-        this.trip_requireAssessment = trip_requireAssessment;
-        this.trip_description = trip_description;
+        this.tripList = tripList;
         this.recycleViewInterface = recycleViewInterface;
     }
 
@@ -51,17 +46,18 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.AppViewHol
 
     @Override
     public void onBindViewHolder(@NonNull final AppViewHolder holder, final int position) {
-        holder.trip_id_txt.setText(String.valueOf(trip_id.get(position)));
-        holder.trip_name_txt.setText(String.valueOf(trip_name.get(position)));
-        holder.trip_destination_txt.setText(String.valueOf(trip_destination.get(position)));
-        holder.trip_date_txt.setText(String.valueOf(trip_date.get(position)));
-        holder.trip_requireAssessment_txt.setText(String.valueOf(trip_requireAssessment.get(position)));
-        holder.trip_description_txt.setText(String.valueOf(trip_description.get(position)));
+        TripList tList = tripList.get(position);
+        holder.trip_id_txt.setText(String.valueOf(tList.getTrip_id()));
+        holder.trip_name_txt.setText(String.valueOf(tList.getTrip_name()));
+        holder.trip_destination_txt.setText(String.valueOf(tList.getTrip_destination()));
+        holder.trip_date_txt.setText(String.valueOf(tList.getTrip_name()));
+        holder.trip_requireAssessment_txt.setText(String.valueOf(tList.getTrip_requireAssessment()));
+        holder.trip_description_txt.setText(String.valueOf(tList.getTrip_description()));
     }
 
     @Override
     public int getItemCount() {
-        return trip_id.size();
+        return tripList.size();
     }
 
     public static class AppViewHolder extends RecyclerView.ViewHolder {
