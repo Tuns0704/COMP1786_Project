@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddActivity">
+
+    <TextView
+        android:id="@+id/name_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/name_text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/name_input_detail"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/textplain_border"
+        android:ems="10"
+        android:hint="@string/name_text"
+        android:importantForAutofill="no"
+        android:minHeight="48dp"
+        android:padding="10dp"
+        android:focusable="false"
+        android:inputType="none"
+        android:textIsSelectable="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/name_label"
+        tools:ignore="LabelFor" />
+
+    <TextView
+        android:id="@+id/destination_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="8dp"
+        android:editable="false"
+        android:text="@string/destination_text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/name_input_detail" />
+
+    <EditText
+        android:id="@+id/destination_input_detail"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:autofillHints="Trip Name"
+        android:background="@drawable/textplain_border"
+        android:ems="10"
+        android:hint="@string/destination_text"
+        android:focusable="false"
+        android:inputType="none"
+        android:textIsSelectable="true"
+        android:minHeight="48dp"
+        android:padding="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/destination_label"
+        tools:ignore="LabelFor,DuplicateSpeakableTextCheck" />
+
+    <TextView
+        android:id="@+id/date_trip_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/date_of_the_trip_text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/destination_input_detail" />
+
+    <Button
+        android:id="@+id/date_picker_detail"
+        style="?android:spinnerStyle"
+        android:layout_width="300dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/textplain_border"
+        android:clickable="false"
+        android:text="@string/date_example"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/date_trip_label" />
+
+    <TextView
+        android:id="@+id/require_assessment_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/require_risks_assessment_text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/date_picker_detail" />
+
+    <RadioGroup
+        android:id="@+id/require_assessment_input_detail"
+        android:layout_width="299dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="8dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/require_assessment_label">
+
+        <RadioButton
+            android:id="@+id/Risks_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:buttonTint="#03A9F4"
+            android:clickable="false"
+            android:text="@string/yes" />
+
+        <RadioButton
+            android:id="@+id/NoRisks_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="60dp"
+            android:buttonTint="#03A9F4"
+            android:clickable="false"
+            android:text="@string/no"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toStartOf="@+id/Risks" />
+
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/description_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/description"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/require_assessment_input_detail" />
+
+    <EditText
+        android:id="@+id/description_input_detail"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:autofillHints=""
+        android:background="@drawable/textplain_border"
+        android:ems="10"
+        android:focusable="false"
+        android:hint="@string/description"
+        android:inputType="none"
+        android:minHeight="48dp"
+        android:padding="10dp"
+        android:textIsSelectable="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/description_label"
+        tools:ignore="DuplicateSpeakableTextCheck" />
+
+    <Button
+        android:id="@+id/edit_btn"
+        android:layout_width="300dp"
+        android:layout_height="61dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="@android:color/holo_blue_light"
+        android:text="@string/edit"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/description_input_detail" />
+
+    <Button
+        android:id="@+id/see_all_expenses_btn"
+        android:layout_width="300dp"
+        android:layout_height="62dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="@android:color/holo_red_light"
+        android:text="@string/see_all_expenses"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edit_btn" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

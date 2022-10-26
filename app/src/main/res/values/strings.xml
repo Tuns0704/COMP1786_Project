@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">Trips Expense</string>
+    <string name="description">Description</string>
+    <string name="edit_btn">Edit</string>
+    <string name="add_btn">Add</string>
+    <string name="save_btn">Save</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="date_example">SEP 20 2022</string>
+    <string name="update_btn">Update</string>
+    <string name="require_risks_assessment_text">Require Risks Assessment</string>
+    <string name="date_of_the_trip_text">Date of the Trip</string>
+    <string name="destination_text">Destination</string>
+    <string name="name_text">Name</string>
+    <string name="delete_text">Delete</string>
+    <string name="delete_all_txt">Delete All</string>
+    <string name="no_data_txt">No Data</string>
+    <string name="see_all_expense_txt">See all Expense</string>
+    <string name="edit">Edit</string>
+    <string name="see_all_expenses">See all Expenses</string>
+    <string name="trip_txt">Trip</string>
+    <string name="search_txt">Search</string>
+    <string name="upload_txt">Upload</string>
+    <string name="title_activity_search">SearchActivity</string>
+    <string name="amount_txt">100$</string>
+    <string name="type_txt">Travel</string>
+    <string name="expense_type_choose">Choose</string>
+    <string name="amount_text">Amount</string>
+    <string name="type_expenses_txt">Type</string>
+</resources>
