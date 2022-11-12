@@ -80,12 +80,12 @@
         style="?android:spinnerStyle"
         android:layout_width="300dp"
         android:layout_height="48dp"
-        android:layout_marginStart="56dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/textplain_border"
         android:clickable="false"
         android:text="@string/date_example"
         android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/date_trip_label" />
 
@@ -164,11 +164,11 @@
         android:id="@+id/edit_btn"
         android:layout_width="300dp"
         android:layout_height="61dp"
-        android:layout_marginStart="56dp"
         android:layout_marginTop="8dp"
         android:backgroundTint="@android:color/holo_blue_light"
         android:text="@string/edit"
         android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/description_input_detail" />
 
@@ -176,11 +176,11 @@
         android:id="@+id/see_all_expenses_btn"
         android:layout_width="300dp"
         android:layout_height="62dp"
-        android:layout_marginStart="56dp"
         android:layout_marginTop="8dp"
         android:backgroundTint="@android:color/holo_red_light"
         android:text="@string/see_all_expenses"
         android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edit_btn" />
 

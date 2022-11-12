@@ -1,5 +1,6 @@
 package com.example.comp1786_project;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -22,6 +23,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.AppViewHol
     private final RecycleViewInterface recycleViewInterface;
     List<TripList> tripList;
 
+    @SuppressLint("NotifyDataSetChanged")
     public void setFilteredList(List<TripList> filteredList){
         this.tripList = filteredList;
         notifyDataSetChanged();

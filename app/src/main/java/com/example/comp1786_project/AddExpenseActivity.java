@@ -73,7 +73,10 @@ public class AddExpenseActivity extends AppCompatActivity {
                             expenseAmount,
                             expenseTime
                     );
-                    String id = getIntent().getStringExtra("id");
+                    String id = String.valueOf(getIntent().getIntExtra("id",tripId));
+                    Intent intent = new Intent(AddExpenseActivity.this,ExpensesMainActivity.class);
+                    intent.putExtra("id", id);
+                    startActivity(intent);
                 }
             }
         });

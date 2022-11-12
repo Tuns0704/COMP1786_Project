@@ -27,4 +27,16 @@
     <string name="expense_type_choose">Choose</string>
     <string name="amount_text">Amount</string>
     <string name="type_expenses_txt">Type</string>
+    <string name="url"> https://cwservice1786.herokuapp.com/sendPayLoad</string>
+    <string name="json">
+        {\"userId\":\"wm123\",
+        \"detailList\":[{\"medalColour\":\"bronze\",
+        \"athleteName\":\"gatlin\"},
+        {\"medalColour\":\"silver\",
+        \"athleteName\":\"blake\"},
+        {\"medalColour\":\"gold\",
+        \"athleteName\":\"bolt\"}]}
+    </string>
+    <string name="submit_to_cloud">Submit to Cloud</string>
+    <string name="submit">Submit</string>
 </resources>
